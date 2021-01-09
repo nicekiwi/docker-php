@@ -7,3 +7,5 @@ PHP 8 Development Docker Image
 - XDebug
 
 Runs as `1000:www-data`
+
+`WORKDIR` optimised for CaddyServer app at `/srv/app/`.
