@@ -18,4 +18,4 @@ TZ=UTC
 UID=1000
 ```
 
-`ENVIROMENT` defines weathewr `development` or `production` php.ini template is used.
+`ENVIROMENT` defines weather `development` or `production` php.ini template is used.
