@@ -19,3 +19,5 @@ UID=1000
 ```
 
 `ENVIROMENT` defines weather `development` or `production` php.ini template is used.
+
+XDebug is installed, but not enabled in php.ini by default.
