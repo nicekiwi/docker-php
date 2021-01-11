@@ -1,7 +1,7 @@
 FROM php:8.0-fpm-alpine
 
 # Setup ENV defaults
-ENV ENVIROMENT=development
+ENV ENVIROMENT=production
 ENV UID=1000
 ENV TZ=UTC
 
@@ -30,5 +30,7 @@ RUN usermod -u $UID www-data
 
 # Set Working Dir
 WORKDIR /srv/app
+
+EXPOSE 9000
 
 CMD ["php-fpm"]
