@@ -1,7 +1,7 @@
 FROM php:8.0.1-fpm-alpine3.12
 
 # Setup ENV defaults
-ENV ENVIROMENT=production
+ENV ENVIRONMENT=production
 ENV UID=1000
 ENV TZ=UTC
 
@@ -23,7 +23,7 @@ RUN pecl install redis-5.3.2 \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set default dev php.ini
-RUN mv "$PHP_INI_DIR/php.ini-$ENVIROMENT" "$PHP_INI_DIR/php.ini"
+RUN mv "$PHP_INI_DIR/php.ini-$ENVIRONMENT" "$PHP_INI_DIR/php.ini"
 
 # Setup uID for active user
 RUN usermod -u $UID www-data

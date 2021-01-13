@@ -1,4 +1,5 @@
 # docker-php
+
 PHP 8 Docker Image
 
 - Alpine Base
@@ -13,11 +14,11 @@ Runs as `1000:www-data`
 ### Build ENVs
 
 ```
-ENVIROMENT=production
+ENVIRONMENT=production
 TZ=UTC
 UID=1000
 ```
 
-`ENVIROMENT` defines weather `development` or `production` php.ini template is used.
+`ENVIRONMENT` defines weather `development` or `production` php.ini template is used.
 
 XDebug is installed, but not enabled in php.ini by default.
