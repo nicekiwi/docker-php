@@ -25,12 +25,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set default dev php.ini
 RUN mv "$PHP_INI_DIR/php.ini-$ENVIRONMENT" "$PHP_INI_DIR/php.ini"
 
-# Setup uID for active user
+# Setup uID for www-data user
 RUN usermod -u $UID www-data
+
+# Change to www-data user
+USER www-data
 
 # Set Working Dir
 WORKDIR /srv/app
-
-EXPOSE 9000
-
-CMD ["php-fpm"]
