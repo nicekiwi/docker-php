@@ -9,7 +9,7 @@ ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install deps
-RUN apk --update add bash autoconf build-base wget curl git zip unzip jpeg-dev zlib-dev libpng-dev shadow
+RUN apk --update add bash autoconf build-base wget curl git zip unzip jpeg-dev zlib-dev libpng-dev shadow libpq postgresql-dev
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql pdo_pgsql exif pcntl bcmath gd
