@@ -12,7 +12,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apk --update add bash autoconf build-base wget curl git zip unzip jpeg-dev zlib-dev libpng-dev shadow
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql exif pcntl bcmath gd
+RUN docker-php-ext-install pdo_mysql pdo_pgsql exif pcntl bcmath gd
 
 # Install PECL extensions
 RUN pecl install redis-5.3.2 \
