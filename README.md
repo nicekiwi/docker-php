@@ -2,14 +2,14 @@
 
 ## PHP 8 Docker Image
 
-Optimised for Laravel
+Optimised for Laravel 8.
 
 - Alpine 3.12
 - PHP 8.0.6
 - Composer 2
 - XDebug 3
 
-Supports Redis, PostgreSQL and MySQL.
+Supports Redis and PostgreSQL.
 
 ## Build ENV variables
 
@@ -28,7 +28,7 @@ UID=1000
 
 ## XDebug
 
-XDebug is disabled by default.
+XDebug is only installed when build with `ENVIROMENT="development"` and is disabled by default.
 
 Enable with:
 
@@ -40,3 +40,5 @@ xdebug.mode=debug
 xdebug.client_host=host.docker.internal
 xdebug.client_port="9003"
 ```
+
+https://github.com/nicekiwi/docker-php
