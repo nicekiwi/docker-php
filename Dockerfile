@@ -1,4 +1,4 @@
-FROM php:8.0.6-fpm-alpine3.12
+FROM php:8.0.7-fpm-alpine3.12
 
 # Setup ARG defaults
 ARG ENVIROMENT=production
