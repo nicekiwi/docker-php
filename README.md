@@ -4,7 +4,7 @@
 
 Optimised for Laravel 8.
 
-- Alpine 3.12
+- Alpine 3.14
 - PHP 8.0.9
 - Composer 2
 - XDebug 3
