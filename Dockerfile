@@ -1,16 +1,10 @@
-FROM php:8.0.9-fpm-alpine3.14
+FROM php:8.0.15-alpine3.15
 
 # Setup ARG defaults
-ARG ENVIROMENT=production
 ARG WORKDIR=/srv/app
-ARG USER=root
-ARG UID=1000
 ARG TZ=UTC
 
-ENV ENVIROMENT=${ENVIROMENT}
 ENV WORKDIR=${WORKDIR}
-ENV USER=${USER}
-ENV UID=${UID}
 ENV TZ=${TZ}
 
 # Setup Timezone
@@ -26,25 +20,8 @@ RUN docker-php-ext-install pdo_pgsql exif pcntl bcmath gd
 RUN pecl install redis-5.3.2 \
     && docker-php-ext-enable redis
 
-# Install XDebug
-RUN if [[ "${ENVIROMENT}" != "production" ]] ; then \
-        pecl install xdebug-3.0.2 \
-        && docker-php-ext-enable xdebug ; \
-    fi
-
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Set default php.ini
-RUN mv "${PHP_INI_DIR}/php.ini-${ENVIROMENT}" "${PHP_INI_DIR}/php.ini"
-
-# Setup uID for user
-RUN if [[ "${ENVIROMENT}" != "production" ] && [ "${USER}" != "root" ]] ; then \
-        usermod -u ${UID} ${USER} ; \
-    fi
-
-# Setup User
-USER ${USER}
 
 # Set Working Dir
 WORKDIR ${WORKDIR}
