@@ -1,4 +1,4 @@
-FROM php:8.0.15-alpine3.15
+FROM php:8.1-alpine3.15
 
 # Setup ARG defaults
 ARG WORKDIR=/srv/app
@@ -17,7 +17,7 @@ RUN apk --update add bash autoconf build-base wget curl git zip unzip jpeg-dev z
 RUN docker-php-ext-install pdo_pgsql exif pcntl bcmath gd
 
 # Install PECL extensions
-RUN pecl install redis-5.3.2 \
+RUN pecl install redis \
     && docker-php-ext-enable redis
 
 # Get latest Composer
