@@ -1,11 +1,11 @@
 # docker-php
 
-## PHP 8.1 Docker Image
+## PHP-FPM 8.1 Docker Image
 
 Optimised for Laravel 9.
 
 - Alpine 3.15
-- PHP 8.1.3
+- PHP 8.1.4
 - Composer 2
 - XDebug 3
 
