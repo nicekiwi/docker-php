@@ -7,7 +7,6 @@ Optimised for Laravel 9.
 - Alpine 3.15
 - PHP 8.1.4
 - Composer 2
-- XDebug 3
 
 Supports Redis and PostgreSQL.
 
