@@ -1,7 +1,10 @@
-FROM php:8.1.4-fpm-alpine3.14
+ARG PHP_VERSION=8.2.2
+ARG ALPINE_VERSION=3.17
+
+FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION}
 
 # Setup ARG defaults
-ARG WORKDIR=/srv/app
+ARG WORKDIR=/var/www/html
 ARG TZ=UTC
 
 ENV WORKDIR=${WORKDIR}
@@ -14,7 +17,7 @@ RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezo
 RUN apk --update add bash autoconf build-base wget curl git zip unzip jpeg-dev zlib-dev libpng-dev shadow libpq postgresql-dev
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_pgsql exif pcntl bcmath gd
+RUN docker-php-ext-install pdo_pgsql exif pcntl bcmath gd mysqli
 
 # Install PECL extensions
 RUN pecl install redis \
@@ -25,4 +28,3 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set Working Dir
 WORKDIR ${WORKDIR}
-

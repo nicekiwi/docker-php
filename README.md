@@ -1,20 +1,22 @@
 # docker-php
 
-## PHP-FPM 8.1 Docker Image
+## PHP-FPM 8.x Docker Image
 
 Optimised for Laravel 9.
 
-- Alpine 3.15
-- PHP 8.1.4
-- Composer 2
+- Alpine 3.x
+- PHP 8.x
+- Composer 2.x
 
-Supports Redis and PostgreSQL.
+Supports Redis, MySQL and PostgreSQL on `amd64` and `arm64/v8` architectures.
 
 ## Build ENV variables
 
 ```
 # Defaults
-WORKDIR=/srv/app
+PHP_VERSION=8.2.2
+ALPINE_VERSION=3.17
+WORKDIR=/var/www
 TZ=UTC
 ```
 
